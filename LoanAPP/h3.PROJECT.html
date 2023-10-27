@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="h3.css">
+    <style>
+        p{
+            color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="h3.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
+</head>
+<body>
+    <!-- form validation-->
+    <script>
+        function validate(){
+        let fname=document.signup.fname.value;
+        let mobile=document.signup.mobile.value;
+        let email=document.signup.email.value;
+        let pass=document.signup.pass.value;
+        let date=document.signup.date.value;
+
+    
+
+        let alphaExp = /^[a-zA-Z]+$/;
+        let numExp =/^[0-9]+$/;
+      
+
+        let namestatus = mobilestatus = emailstatus= passtatus= false;
+
+        //full name validation
+
+        if(fname=== ""){
+            document.getElementById('namenote').innerHTML="Please Enter Name"
+            namestatus = false
+        }
+        else{
+            if(fname.match(alphaExp)){
+                document.getElementById("namenote").innerHTML="";
+                namestatus=true;
+            }
+            else{
+                document.getElementById('namenote').innerHTML="Name should contain only alphabets";
+                namestatus=false
+            }
+        }
+
+        //email name validation
+
+        if(email=== ""){
+            document.getElementById('emailnote').innerHTML="Please Enter a Mail-ID"
+            emailstatus = false
+        }
+        else{
+            if(email.match()){
+                document.getElementById("emailnote").innerHTML="";
+                emailstatus=true;
+            }
+            else{
+                document.getElementById('emailnote').innerHTML="Name should contain only alphabets & @";
+                emailstatus=false
+            }
+        }
+        //pass name validation
+
+        if(pass=== ""){
+            document.getElementById('passnote').innerHTML="Please Enter a Password"
+            passtatus = false
+        }
+        else{
+            if(pass.match()){
+                document.getElementById("passnote").innerHTML="";
+                passtatus=true;
+            }
+            else{
+                document.getElementById('passnote').innerHTML="Name should contain only alphabets & @";
+                passtatus=false
+            }
+        }
+
+        //Date name validation
+
+        if(date=== ""){
+            document.getElementById('datenote').innerHTML="Please Enter a Date"
+            datestatus = false
+        }
+        else{
+            if(pass.match()){
+                document.getElementById("datenote").innerHTML="";
+                datestatus=true;
+            }
+            else{
+                document.getElementById('datenote').innerHTML="Valid Only above 18+";
+                datestatus=false
+            }
+        }
+
+
+
+        //Mobile number val idation 
+
+
+        if(mobile === ""){
+            document.getElementById('mobilenote').innerHTML = "Please Enter a Mobile Number";
+        }
+        else{
+            if(mobile.match(numExp)){
+                if(mobile.length == 10){
+                    document.getElementById('mobilenote').innerHTML="";
+                    mobilestatus = true
+                }
+                else{
+                    document.getElementById('mobilenote').innerHTML="Mobile no must be of length 10 digits.";
+                }
+            }
+            else{
+                document.getElementById("mobilenote").innerHTML="Please Enter a 10 Digits Only";
+                mobilestatus = false
+            }
+        }
+
+
+        if(namestatus  === true && mobilestatus === true && emailstatus===true && passtatus===true && datestatus===true){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
+    </script>
+
+<div class="bg">
+
+    <h1 class="text-center pt-5 text-white ">Fill the Details:</h1>
+    
+        <form name="signup" action="" class="mar" onsubmit="return validate()">
+            <input class="formm" type="text" name="fname" id="fname" placeholder="Full Name">
+            <p id="namenote"></p>
+            <input class="formm" type="tel" name="mobile" id="mobile" placeholder="Mobile Number">
+            <p id="mobilenote"></p>
+            <input class="formm" type="email" name="email" id="email" placeholder="Email">
+            <p id="emailnote"></p>
+            <input class="formm" type="password" name="pass" id="pass" placeholder="Password">
+            <p id="passnote"></p>
+            <input class="formm" class="" type="date" name="date" id="date" placeholder="Date">
+            <p id="datenote"></p>
+
+            <a href="submit.html"> 
+                <input class="new" target="_blank"  type="submit" name="" id=""> 
+            </a>
+        </form>
+</div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
